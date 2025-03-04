@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducati Panigale V4S - Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .slider img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .slider img.active {
+            display: block;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .product-details {
+            flex: 1 1 300px;
+            margin: 1rem;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            margin: 1rem 0;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #e63946;
+            margin: 1rem 0;
+        }
+
+        .buy-now {
+            display: inline-block;
+            background-color: yellow;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .specs-table {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .specs-table th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ducati Panigale V4</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Overview</a>
+        <a href="shop.html">Price</a>
+        <a href="products.html">Models</a>
+    </nav>
+
+    <div class="product-container">
+        <div class="slider">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <img src="C:\Users\DELL\Pictures\Screenshots\Screenshot 2025-03-03 093922.png" class="active" alt="Ducati Panigale V4 1">
+            <img src="C:\Users\DELL\Pictures\Screenshots\Screenshot 2025-03-03 094147.png" alt="Ducati Panigale V4 2">
+            <img src="C:\Users\DELL\Pictures\Screenshots\Screenshot 2025-03-03 094128.png" alt="Ducati Panigale V4 3">
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+        <div class="product-details">
+            <h2 class="product-title">Ducati Panigale V4</h2>
+			<div class="product-price">↓10% <strike>₹39,18,900</strike> ₹35,27,010</div>
+            <p class="product-description">
+                The Ducati Panigale V4 is a high-performance superbike with a powerful 1,103cc engine, producing 212.5 bhp and 123.6 Nm of torque. It features advanced electronic rider aids and a lightweight design, making it a top contender in the superbike category.
+            </p>
+            <div class="container">
+                <a href="#" class="buy-now">Buy Now</a>
+            </div>
+        </div>
+    </div>
+	<section>
+        <h2>Ducati Panigale V4 Summary</h2>
+        <p>Price: Ducati Panigale V4 price for its variant - Panigale V4 Standard starts at Rs. 32,18,218. The price for the other variants - Panigale V4 S and Panigale V4 SP2 are Rs. 38,92,854 and Rs. 49,15,110. The mentioned Panigale V4 prices are the on-road price of Visakhapatnam.</p>
+        <p>Ducati Panigale V4 is a super bike available in 3 variants and 3 colours...</p>
+    </section>
+
+    <table class="specs-table">
+        <tr><th colspan="2">Panigale V4 Key Highlights</th></tr>
+        <tr><td>Engine Capacity</td><td>1,103 cc</td></tr>
+        <tr><td>Mileage - ARAI</td><td>13 kmpl</td></tr>
+        <tr><td>Transmission</td><td>6 Speed Manual</td></tr>
+        <tr><td>Kerb Weight</td><td>198.5 kg</td></tr>
+        <tr><td>Fuel Tank Capacity</td><td>17 litres</td></tr>
+        <tr><td>Seat Height</td><td>850 mm</td></tr>
+    </table>
+
+   
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".slider img");
+
+        function showSlide(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle("active", i === index);
+            });
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showSlide(currentIndex);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+    </script>
+</body>
+</html>
